@@ -25,13 +25,16 @@ with open(poll_data) as poll_data:
         else:
             candidate_votes[row["Candidate"]] = candidate_votes[row["Candidate"]] + 1
 
+
 print("Election Results")
 print("-------------------------")
 print("Total Votes: " + str(votes))
 print("-------------------------")
 
 for c in candidate_votes:
-        print(c + " " + str(round(((candidate_votes[c]/votes)*100))) + "%" + " (" + str(candidate_votes[c]) + ")") 
-        candidate_results = (c + " " + str(round(((candidate_votes[c]/votes)*100))) + "%" + " (" + str(candidate_votes[c]) + ")")
+        print(c + " " + str(round(((candidate_votes[c]/votes)*100))) 
+        + "%" + " (" + str(candidate_votes[c]) + ")") 
+        candidate_results = (c + " " + str(round(((candidate_votes[c]/votes)*100))) 
+        + "%" + " (" + str(candidate_votes[c]) + ")")
 
-print("Winner:Khan")
+print("Winner: Khan")
