@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Mission to Mars</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="static/style.css">
+</head>
+
+<body>
+  <div class="container">
+
+    <div class="jumbotron">
+      <h1>Mission to Mars</h1>
+      <p>
+        <a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New</a>
+      </p>
+
+    </div>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <h2>Latest Mars news.</h2>
+          <h4>{{mars.news_date}}</h4>
+          <h4> {{ mars.news_title }}</h4>
+          <p> {{mars.summary}} </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-8 big_box">
+          <h2>Featured Mars Image</h2>
+          <img src="{{mars.featured_image_url}}" alt="Mars Image" />
+        </div>
+
+        <div class="col-md-4">
+          <div class="row weather-box">
+            <div class="col-md-12">
+              <h3>The current weather on Mars</h3>
+              <p>
+                {{mars.mars_weather}}
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-12">
+            <h3>Mars facts</h3>
+            <table border="1" class="dataframe">
+                <thead>
+                  <tr style="text-align: right;">
+                    <th></th>
+                    <th>Parameter</th>
+                    <th>Values</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th>0</th>
+                    <td>Equatorial Diameter:</td>
+                    <td>6,792 km</td>
+                  </tr>
+                  <tr>
+                    <th>1</th>
+                    <td>Polar Diameter:</td>
+                    <td>6,752 km</td>
+                  </tr>
+                  <tr>
+                    <th>2</th>
+                    <td>Mass:</td>
+                    <td>6.42 x 10^23 kg (10.7% Earth)</td>
+                  </tr>
+                  <tr>
+                    <th>3</th>
+                    <td>Moons:</td>
+                    <td>2 (Phobos &amp; Deimos)</td>
+                  </tr>
+                  <tr>
+                    <th>4</th>
+                    <td>Orbit Distance:</td>
+                    <td>227,943,824 km (1.52 AU)</td>
+                  </tr>
+                  <tr>
+                    <th>5</th>
+                    <td>Orbit Period:</td>
+                    <td>687 days (1.9 years)</td>
+                  </tr>
+                  <tr>
+                    <th>6</th>
+                    <td>Surface Temperature:</td>
+                    <td>-153 to 20 �C</td>
+                  </tr>
+                  <tr>
+                    <th>7</th>
+                    <td>First Record:</td>
+                    <td>2nd millennium BC</td>
+                  </tr>
+                  <tr>
+                    <th>8</th>
+                    <td>Recorded By:</td>
+                    <td>Egyptian astronomers</td>
+                  </tr>
+                </tbody>
+              </table>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+    <div class="container-fluid">
+
+      <div class="jumbotron">
+        <h1>Mars Hemispheres</h1>
+
+        <div class="row">
+          <div class="col-md-6">
+            <img src="https://astrogeology.usgs.gov//cache/images/3cdd1cbf5e0813bba925c9030d13b62e_schiaparelli_enhanced.tif_full.jpg" alt="Mars Hemisphere1" style="width:400px;height:400px;border:0;">
+            <h3>{{mars.mars_hemis[0]['title']}}</h3>
+          </div>
+          <div class="col-md-6">
+            <img src="https://astrogeology.usgs.gov/cache/images/7cf2da4bf549ed01c17f206327be4db7_valles_marineris_enhanced.tif_full.jpg" alt="Mars Hemisphere2" style="width:400px;height:400px;border:0;">
+            <h3>{{mars.mars_hemis[1]['title']}}</h3>
+          </div>
+        </div>
+
+
+        <div class="row">
+          <div class="col-md-6">
+            <img src="https://astrogeology.usgs.gov/cache/images/ae209b4e408bb6c3e67b6af38168cf28_syrtis_major_enhanced.tif_full.jpg" alt="Mars Hemisphere1" style="width:400px;height:400px;border:0;">
+            <h3>{{mars.mars_hemis[0]['title']}}</h3>
+          </div>
+          <div class="col-md-6">
+            <img src="https://astrogeology.usgs.gov/cache/images/cfa62af2557222a02478f1fcd781d445_cerberus_enhanced.tif_full.jpg" alt="Mars Hemisphere2" style="width:400px;height:400px;border:0;">
+            <h3>{{mars.mars_hemis[1]['title']}}</h3>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+  </div>
+  </div>
+
+  </div>
+
+
+  <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+    crossorigin="anonymous">
+    </script>
+
+</body>
+
+</html>
